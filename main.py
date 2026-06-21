@@ -2,37 +2,53 @@
 
 startOver = 'Y'
 
-usernameList = ['admin' , 'admin 2']
-passwordList = ['123' , '22222']
+usernameList = []
+passwordList = []
+
+# welcomo
+#1: login
+#2: signup
+#3: list of user
+print('Welcome to the My application')
 
 while(startOver == 'Y'):
     
-    username = input('Please create your Username: ')
-    password = input('Please Create a password: ')
-    password2 = input('Please add your password again: ')
+    options = input('Chose one of the numbers: 1.Sign up, 2.Login 3.Show the List of User: ')
 
-    if password != password2:
-        for i in range(3):
-            
-            print('Please try again!') 
-            password2 = input('Please add the password again: ')
-            
-            if password == password2:
-                print('Password created!')
-                break
-
-    else:
-        ('Password created!')
-
-    if password2 == password:
-        usernameList.append(username)
-        passwordList.append(password)
-            
-     # user : pass   
-    for item in passwordList:
-        print(item)
+    if options == '1':
         
-    for user in usernameList:
-        print(user)       
-    startOver = input('do you want to create another acount?(Y/N): ')
+        username = input('Please create your Username: ')
+        password = input('Please Create a password: ')
+        password2 = input('Please add your password again: ')
 
+        if password != password2:
+            for i in range(3):
+                
+                print('Please try again!') 
+                password2 = input('Please add the password again: ')
+                
+                if password == password2:
+                    print('Password created!')
+                    break
+
+        else:
+            ('Password created!')
+        
+        if password2 == password:
+            usernameList.append(username)
+            passwordList.append(password)       
+            
+    elif options == '2':
+        print('todo') 
+        
+    elif options == '3':
+        
+        # user : pass 
+        for i in range(len(usernameList)):  
+            print(f'{usernameList[i]} : {passwordList[i]}')   
+        
+        
+    else:
+        print('your answer is invalid')   
+
+    startOver = input('do you want to go back to menu?(Y/N): ') 
