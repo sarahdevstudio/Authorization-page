@@ -2,14 +2,14 @@
 
 startOver = 'Y'
 
-usernameList = []
-passwordList = []
+usernameList = ['sarah', 'amir', 'sogol']
+passwordList = ['1', '1', '3']
 
 # welcomo
-#1: login
-#2: signup
+#1: sign up
+#2: login
 #3: list of user
-print('Welcome to the My application')
+print('Welcome to My application')
 
 while(startOver == 'Y'):
     
@@ -39,8 +39,21 @@ while(startOver == 'Y'):
             passwordList.append(password)       
             
     elif options == '2':
-        print('todo') 
+        loginUser = input('Username: ')
+        loginPassword = input('Password: ')
         
+        if loginUser in usernameList:
+            indexUser = usernameList.index(loginUser)
+            
+            if passwordList[indexUser] == loginPassword:
+                print('successful!')
+            #else: pass invalid try again
+            
+        else:
+            print('Username not found! Please try again!')
+            
+        
+                
     elif options == '3':
         
         # user : pass 
