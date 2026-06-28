@@ -3,7 +3,7 @@
 startOver = 'Y'
 
 usernameList = ['sarah', 'amir', 'sogol']
-passwordList = ['1', '1', '3']
+passwordList = ['123', '456', '789']
 
 # welcomo
 #1: sign up
@@ -40,25 +40,28 @@ while(startOver == 'Y'):
                 passwordList.append(password)       
                 
         case '2':
-            loginUser = input('Username: ')
-            loginPassword = input('Password: ')
-            
-            if loginUser in usernameList:
-                indexUser = usernameList.index(loginUser)
+            for x in range(3):
+
+                loginUser = input('Username: ')
+                loginPassword = input('Password: ')
                 
-                if passwordList[indexUser] == loginPassword:
-                    print('successful!')
-                #else: pass invalid try again
+                if loginUser in usernameList:
+                    indexUser = usernameList.index(loginUser)
+                    
+                    if passwordList[indexUser] == loginPassword:
+                        print('successful!')
+                        break;
+                    else:
+                        print('Pasword is invalid! Please try again.')
                 
-            else:
-                print('Username not found! Please try again!')
-            
+                else:
+                    print('Username not found! Please try again!')
+                                        
         case '3':
             
             # user : pass 
             for i in range(len(usernameList)):  
                 print(f'{usernameList[i]} : {passwordList[i]}')   
-            
             
         case _:
             print('your answer is invalid')   
