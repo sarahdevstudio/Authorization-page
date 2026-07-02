@@ -1,19 +1,17 @@
 #Username and password authorization
 
-startOver = 'Y'
-
 usernameList = ['sarah', 'amir', 'sogol']
 passwordList = ['123', '456', '789']
-
-# welcomo
+#welcomo
 #1: sign up
 #2: login
 #3: list of user
-print('Welcome to My application')
+print('\t\t\t\t\tWelcome To My Application')
 
-while(startOver == 'Y'):
+while(True):
     
-    options = input('Chose one of the numbers: 1.Sign up, 2.Login 3.Show the List of User: ')
+    print('-'*100)
+    options = input('1.Sign up\n2.Login \n3.Show the List of User\n4.Exit\nChose one of the numbers:')
     
     match options:
         case '1':  
@@ -50,7 +48,19 @@ while(startOver == 'Y'):
                     
                     if passwordList[indexUser] == loginPassword:
                         print('successful!')
-                        break;
+                        
+                        isChangePassword = input('would you like to change the password?(Y/N): ')
+                        
+                        if isChangePassword == 'N':
+                            break
+                        else:
+                            newPassword =  input('please enter the new password: ')
+                            
+                            passwordList[indexUser] = newPassword
+                            
+                            # passwordList.remove(loginPassword)
+                            # passwordList.insert(indexUser,newPassword)
+                            
                     else:
                         print('Pasword is invalid! Please try again.')
                 
@@ -58,12 +68,13 @@ while(startOver == 'Y'):
                     print('Username not found! Please try again!')
                                         
         case '3':
-            
             # user : pass 
             for i in range(len(usernameList)):  
-                print(f'{usernameList[i]} : {passwordList[i]}')   
+                print(f'{usernameList[i]} : {passwordList[i]}')  
+             
+        case '4':
+            #exit
+            break        
             
         case _:
             print('your answer is invalid')   
-
-    startOver = input('do you want to go back to menu?(Y/N): ')     
